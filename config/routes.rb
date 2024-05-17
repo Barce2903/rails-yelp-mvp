@@ -9,9 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :restaurants, except: %i[destroy update edit] do
-    member do
-      post 'reviews', to: 'reviews#create'
-      get 'reviews/new', to: 'reviews#new'
-    end
+    resources :reviews, only: %i[create new]
   end
 end
