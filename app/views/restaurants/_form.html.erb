@@ -1,7 +1,15 @@
-<%= simple_form_for (restaurant) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :phone_number %>
-  <%= f.input :category, collection: %w[chinese italian japanese french belgian] %>
-  <%= f.button :submit, class: 'btn-primary' %>
+<% if defined?(review) %>
+  <%= simple_form_for [restaurant, review] do |f| %>
+    <%= f.input :rating %>
+    <%= f.input :content %>
+    <%= f.button :submit, class: 'btn-primary' %>
+  <% end %>
+<% else %>
+  <%= simple_form_for (restaurant) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.input :category, collection: %w[chinese italian japanese french belgian] %>
+    <%= f.button :submit, class: 'btn-primary' %>
+  <% end %>
 <% end %>

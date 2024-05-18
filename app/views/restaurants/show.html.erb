@@ -8,4 +8,5 @@
 <% @reviews.each do |review| %>
   <p>⋅ <%= review.content %> - <%= review.rating %></p>
 <% end %>
-<h4><small><%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %></small></h4>
+
+<%= render 'form', restaurant: @restaurant, review: @review %>
