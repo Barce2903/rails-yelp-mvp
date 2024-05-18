@@ -5,8 +5,8 @@
 <p><%= link_to 'Back', restaurants_path %></p>
 <hr>
 <h2>Reviews</h2>
-<% @reviews.each do |review| %>
+<% @restaurant.reviews.each do |review| %>
   <p>⋅ <%= review.content %> - <%= review.rating %></p>
 <% end %>
 
-<%= render 'form', restaurant: @restaurant, review: @review %>
+<%= render 'restaurants/form', restaurant: @restaurant, review: @review %>
